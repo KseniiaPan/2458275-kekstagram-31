@@ -10,20 +10,21 @@ let currentScale = 1;
 
 const onZoomOutBtnClick = () => {
   if (currentScale > SCALE_STEP) {
-    previewImage.style.transform = `scale(${currentScale -= SCALE_STEP})`;
+    currentScale -= SCALE_STEP;
+    previewImage.style.transform = `scale(${currentScale})`;
     scaleControl.value = `${currentScale * 100}%`;
   }
 };
 const onZoomInBtnClick = () => {
   if (currentScale < MAX_SCALE) {
-    previewImage.style.transform = `scale(${currentScale += SCALE_STEP})`;
+    currentScale += SCALE_STEP;
+    previewImage.style.transform = `scale(${currentScale})`;
     scaleControl.value = `${currentScale * 100}%`;
   }
 };
 const clearScaleControl = () => {
-  const scale = MAX_SCALE;
-  previewImage.style.transform = `scale(${scale})`;
-  scaleControl.value = `${scale * 100}%`;
+  previewImage.style.transform = `scale(${MAX_SCALE})`;
+  scaleControl.value = `${MAX_SCALE * 100}%`;
 };
 zoomInBtn.addEventListener('click', onZoomInBtnClick);
 zoomOutBtn.addEventListener('click', onZoomOutBtnClick);

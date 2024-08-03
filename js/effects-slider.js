@@ -92,4 +92,5 @@ const clearEffectPreview = () => {
 };
 effectPreview.addEventListener('change', onEffectPreviewClick);
 
+
 export {clearEffectPreview};
